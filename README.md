@@ -4,7 +4,7 @@ A couple years ago two friends of my wife gave me a puzzle called the [Waiter's 
 
 Now of course it's always fun to code the solution to a puzzle once you've solved it, this one is no exception, so here's some code to solve it and visualize the result.
 
-The solver is written in [rust](https://www.rust-lang.org/), and dumps the solution as a JSON array of itermediate states that can be visualized in a web page in the browser (there is a live version [here](http://legrosbuffle.github.io/waiterstray/index.html)).
+The solver is written in [rust](https://www.rust-lang.org/), and dumps the solution as a JSON array of itermediate states that can be visualized in a web page in the browser (there is a live version [here](http://legrosbuffle.github.io/waiterstray/waiterstray.html)).
 
 
 ## Running
