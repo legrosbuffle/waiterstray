@@ -68,3 +68,22 @@ The tray migh block the bottles, the bottles might block the tray, and the marbl
 
 The solution (364 moves) is found after exploring 3232 states (takes 34 milliseconds on my machine).
 
+## Analyzing the puzzle
+
+If we encode the marble positions as a binary number `G` with the `i`-th bit corresponding to the position of the `i`-th marble (`TopLeft` == 1, `Bottom*` == 0), then we can see that the the interlocking mechanism only allow us to change single bit of the value at a time. This kind of sequence is known as a *Reflected Binary Code* (a.k.a *Gray Code*) [[wikipedia](https://en.wikipedia.org/wiki/Gray_code)].
+
+The freeing condition for the tray is for all the bottles to be in the `Top` state. For this to happen, the only possibility is for all the marbles to be in the `BottomRight` state. This corresponds to `G=0`. When unboxing the puzzle, we start at the other extreme of the sequence: `G=32`. In between, we go through the full 6-bit Reflected Binary Code sequence:
+
+```
+32, 33, 35, 34, 38, 39, 37, 36,
+44, 45, 47, 46, 42, 43, 41, 40,
+56, 57, 59, 58, 62, 63, 61, 60,
+52, 53, 55, 54, 50, 51, 49, 48,
+16, 17, 19, 18, 22, 23, 21, 20,
+28, 29, 31, 30, 26, 27, 25, 24,
+ 8,  9, 11, 10, 14, 15, 13, 12,
+ 4,  5,  7,  6,  2,  3,  1,  0
+```
+
+So the puzzle is essentially a **6-bit mechanical Reflected Binary Code reverse counter**.
+
